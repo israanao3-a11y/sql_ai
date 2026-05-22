@@ -2,7 +2,8 @@
 
 Ce projet est une application web de gestion de stock développée avec **Flask**. Elle permet aux utilisateurs de gérer efficacement les produits, de consulter les niveaux de stock et de recevoir des alertes automatiques pour les produits en faible quantité.
 
----
+---<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/8985265e-262f-4503-a5db-9f546d0aa295" />
+
 
 ## 🚀 Fonctionnalités principales
 * **Tableau de bord dynamique :** Affichage en temps réel des produits avec statut (Disponible/Alerte).
@@ -24,5 +25,5 @@ Ce projet est une application web de gestion de stock développée avec **Flask*
 
 1. **Cloner le projet :**
    ```bash
-   git clone [Lien_du_projet]
+   git clone [https://github.com/israanao3-a11y/sql_ai]
    cd sql-ai
