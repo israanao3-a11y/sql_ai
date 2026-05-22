@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>
+        Gestion Stock - FASHION MAROC
+    </title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+
+        h1{
+            color: #222;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td{
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th{
+            background-color: #222;
+            color: white;
+        }
+
+        .alerte{
+            color: red;
+            font-weight: bold;
+        }
+
+        .ok{
+            color: green;
+            font-weight: bold;
+        }
+
+        input{
+            width: 70px;
+            padding: 5px;
+        }
+
+        button{
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        Gestion du stock - FASHION MAROC
+    </h1>
+
+    <table>
+
+        <tr>
+
+            <th>Référence</th>
+
+            <th>Libellé</th>
+
+            <th>Quantité</th>
+
+            <th>Seuil</th>
+
+            <th>Etat</th>
+
+            <th>Réception</th>
+
+        </tr>
+
+        {% for produit in produits %}
+
+        <tr>
+
+            <td>
+                {{ produit.reference }}
+            </td>
+
+            <td>
+                {{ produit.libelle }}
+            </td>
+
+            <td>
+                {{ produit.stock.quantite_disponible }}
+            </td>
+
+            <td>
+                {{ produit.stock.seuil_minimum }}
+            </td>
+
+            <td>
+
+                {% if produit.est_en_alerte %}
+
+                    <span class="alerte">
+                        ALERTE
+                    </span>
+
+                {% else %}
+
+                    <span class="ok">
+                        OK
+                    </span>
+
+                {% endif %}
+
+            </td>
+
+            <td>
+
+                <form
+                    action="/reception/{{ produit.id_produit }}"
+                    method="POST"
+                >
+
+                    <input
+                        type="number"
+                        name="quantite"
+                        min="1"
+                        required
+                    >
+
+                    <button type="submit">
+                        Ajouter
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>
